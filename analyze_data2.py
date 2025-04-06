@@ -3,7 +3,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
-from sklearn.model_selection import cross_val_predict, StratifiedKFold, train_test_split
+from sklearn.model_selection import cross_val_predict, StratifiedKFold
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, confusion_matrix
 from scipy.stats import zscore
