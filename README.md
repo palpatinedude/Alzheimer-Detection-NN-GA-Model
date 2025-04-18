@@ -29,10 +29,10 @@ This project aims to predict the likelihood of Alzheimer's disease in patients u
 
 ## 📁 Project Structure
 
-. ├── alzheimers_disease_data.csv # The dataset used for training the model 
-├── config.py # Configuration file for model parameters 
-├── exercise01.py # Main script to execute the project pipeline 
-├── helpers.py # Helper functions for data handling and utilities
+. ├── alzheimers_disease_data.csv # The dataset used for training the model <br>
+├── config.py # Configuration file for model parameters <br>
+├── exercise01.py # Main script to execute the project pipeline <br>
+├── helpers.py # Helper functions for data handling and utilities<br>
 
 ├── modeling/ # Model-related components
 │ ├── architecture.py # Defines the neural network architecture 
