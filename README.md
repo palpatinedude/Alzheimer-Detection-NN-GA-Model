@@ -34,32 +34,32 @@ This project aims to predict the likelihood of Alzheimer's disease in patients u
 ├── exercise01.py # Main script to execute the project pipeline <br>
 ├── helpers.py # Helper functions for data handling and utilities<br>
 
-├── modeling/ # Model-related components
-│ ├── architecture.py # Defines the neural network architecture 
-│ ├── cross_validation.py # Implements cross-validation techniques 
-│ ├── evaluation.py # Evaluation metrics and result logging
-│ ├── metrics.py # Functions to calculate various performance metrics
-│ ├── training.py # Implements model training logic 
-│ └── tuning.py # Hyperparameter tuning logic
+├── modeling/ # Model-related components<br>
+│ ├── architecture.py # Defines the neural network architecture <br>
+│ ├── cross_validation.py # Implements cross-validation techniques <br>
+│ ├── evaluation.py # Evaluation metrics and result logging<br>
+│ ├── metrics.py # Functions to calculate various performance metrics<br>
+│ ├── training.py # Implements model training logic <br>
+│ └── tuning.py # Hyperparameter tuning logic<br>
 
-├── preprocessing/ # Data preprocessing components 
-│ └── preprocessing.py # Data cleaning, scaling, and outlier detection
+├── preprocessing/ # Data preprocessing components <br>
+│ └── preprocessing.py # Data cleaning, scaling, and outlier detection<br>
 
-├── reporting/ # Experiment logging and reporting 
-│ ├── experiments.py # Tracks experiments and configuration
-│ ├── report_writer.py # Writes experiment reports
-│ └── result_saving.py # Saves results, metrics, and plots
+├── reporting/ # Experiment logging and reporting <br>
+│ ├── experiments.py # Tracks experiments and configuration<br>
+│ ├── report_writer.py # Writes experiment reports<br>
+│ └── result_saving.py # Saves results, metrics, and plots<br>
 
-├── visualization/ # Plotting and visualization scripts 
-│ ├── evalutation_plots.py # Plots for evaluation metrics
-│ ├── plot_base.py # Helper functions for displaying/saving plots
-│ └── training_plots.py # Visualizes training and validation performance
+├── visualization/ # Plotting and visualization scripts <br>
+│ ├── evalutation_plots.py # Plots for evaluation metrics<br>
+│ ├── plot_base.py # Helper functions for displaying/saving plots<br>
+│ └── training_plots.py # Visualizes training and validation performance<br>
 
-├── requirements.txt # List of required dependencies
+├── requirements.txt # List of required dependencies<br>
 
-|── Results/ # Output results and visualizations 
-│ ├── Standardization/
-│ ├── Normalization/
+|── Results/ # Output results and visualizations <br>
+│ ├── Standardization/<br>
+│ ├── Normalization/<br>
 
 
 
