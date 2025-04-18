@@ -1,119 +1,104 @@
-Alzheimer's Disease Prediction
-Project Overview
+# 🧠 Alzheimer's Disease Prediction
 
-This project aims to predict the likelihood of Alzheimer's disease in patients using machine learning. The model classifies whether a patient is likely to have Alzheimer's disease based on various patient data. The pipeline includes data preprocessing, model training, hyperparameter tuning, evaluation, and visualization of results. The goal is to create an effective predictive model for early detection of Alzheimer's disease.
-Key Features
+This project aims to predict the likelihood of Alzheimer's disease in patients using machine learning. The model classifies whether a patient is likely to have Alzheimer's disease based on various patient data. The pipeline includes data preprocessing, model training, hyperparameter tuning, evaluation, and visualization of results — with the goal of building an effective predictive model for early detection of Alzheimer’s disease.
 
-    Data Preprocessing: Cleans the dataset by handling missing values, scaling features, and detecting outliers.
+---
 
-    Modeling: A neural network model is trained to classify Alzheimer’s disease status based on patient data.
+## 🔍 Key Features
 
-    Hyperparameter Tuning: Optimizes the model’s hyperparameters for best performance. This includes:
+- **Data Preprocessing**  
+  - Cleans the dataset by handling missing values, scaling features, and detecting outliers.
 
-        Number of Hidden Neurons
+- **Modeling**  
+  - A neural network model is trained to classify Alzheimer’s disease status based on patient data.
 
-        Learning Rate
+- **Hyperparameter Tuning**  
+  - Number of Hidden Neurons  
+  - Learning Rate  
+  - Momentum  
+  - Transformation Method (Standardization vs Normalization)  
+  - Regularization Coefficient  
 
-        Momentum
+- **Evaluation**  
+  - Metrics include Accuracy, Precision, Recall, F1-score, and ROC-AUC.
 
-        Transformation Method (Standardization vs Normalization)
+- **Visualization**  
+  - Confusion matrices, training/validation accuracy and loss curves.
 
-        Regularization Coefficient
+---
 
-    Evaluation: The model is evaluated using metrics like accuracy, precision, recall, F1-score, and ROC-AUC.
+## 📁 Project Structure
 
-    Visualization: Visualizes model performance and training progress with confusion matrices, accuracy plots, and loss curves.
+. ├── alzheimers_disease_data.csv # The dataset used for training the model. ├── config.py # Configuration file for model parameters. ├── exercise01.py # Main script to execute the project pipeline. ├── helpers.py # Helper functions for data handling and utilities. ├── modeling/ # Contains model architecture, training, evaluation, etc. │ ├── architecture.py # Defines the neural network architecture. │ ├── cross_validation.py # Implements cross-validation techniques. │ ├── evaluation.py # Contains evaluation metrics and result logging. │ ├── metrics.py # Functions to calculate various performance metrics. │ ├── training.py # Implements model training logic. │ └── tuning.py # Tuning of hyperparameters like learning rate, momentum, etc. ├── preprocessing/ # Data preprocessing functions. │ ├── preprocessing.py # Handles data cleaning, scaling, and outlier detection. ├── reporting/ # Logs and saves experiment results and metrics. │ ├── experiments.py # Tracks the experiments and configuration. │ ├── report_writer.py # Writes results and reports. │ └── result_saving.py # Saves model results, metrics, and plots. ├── visualization/ # Plots and charts for model evaluation and training progress. │ ├── evalutation_plots.py # Plots related to model evaluation metrics. │ ├── plot_base.py # Functions for saving and showing plots. │ └── training_plots.py # Plots the training and validation performance over epochs. ├── requirements.txt # Required dependencies for the project. └── Results/ # Directory for storing results and output plots. └── Standardization/ ├── accuracy_plot_fold_1.png └── neural_network_results.txt
 
-Project Structure
 
-.
-├── alzheimers_disease_data.csv         # The dataset used for training the model.
-├── config.py                           # Configuration file for model parameters.
-├── exercise01.py                       # Main script to execute the project pipeline.
-├── helpers.py                          # Helper functions for data handling and utilities.
-├── modeling/                           # Contains model architecture, training, evaluation, etc.
-│   ├── architecture.py                 # Defines the neural network architecture.
-│   ├── cross_validation.py             # Implements cross-validation techniques.
-│   ├── evaluation.py                   # Contains evaluation metrics and result logging.
-│   ├── metrics.py                      # Functions to calculate various performance metrics.
-│   ├── training.py                     # Implements model training logic.
-│   └── tuning.py                       # Tuning of hyperparameters like learning rate, momentum, etc.
-├── preprocessing/                      # Data preprocessing functions.
-│   ├── preprocessing.py                # Handles data cleaning, scaling, and outlier detection.
-├── reporting/                          # Logs and saves experiment results and metrics.
-│   ├── experiments.py                  # Tracks the experiments and configuration.
-│   ├── report_writer.py                # Writes results and reports.
-│   └── result_saving.py                # Saves model results, metrics, and plots.
-├── visualization/                      # Plots and charts for model evaluation and training progress.
-│   ├── evalutation_plots.py            # Plots related to model evaluation metrics.
-│   ├── plot_base.py                    # Functions for saving and showing plots.
-│   └── training_plots.py               # Plots the training and validation performance over epochs.
-├── requirements.txt                   # Required dependencies for the project.
-└── Results/                            # Directory for storing results and output plots.
-    └── Standardization/
-        ├── accuracy_plot_fold_1.png
-        └── neural_network_results.txt
+---
 
-How It Works
-1. Data Preprocessing
+## ⚙️ How It Works
 
-    Cleaning: Missing values are handled, and unnecessary columns are removed from the dataset.
+### 1. Data Preprocessing
 
-    Feature Scaling: Features are scaled using standardization or normalization based on the selected transformation method.
+- **Cleaning**: Handles missing values and removes unnecessary columns.  
+- **Feature Scaling**: Applies either standardization or normalization depending on the selected method.  
+- **Outlier Detection**: Uses Z-scores to detect and optionally handle outliers.
 
-    Outlier Detection: Outliers are detected using Z-scores and addressed accordingly.
+### 2. Model Architecture
 
-2. Model Architecture
+- Defined in `architecture.py` with input, hidden, and output layers.
+- The number of hidden neurons is a tunable hyperparameter.
 
-    The neural network model is defined in architecture.py, including input, hidden, and output layers for classification.
+### 3. Hyperparameter Tuning
 
-    The number of hidden neurons is tuned during the hyperparameter optimization phase.
+- Optimizes the model for:
+  - Number of hidden neurons
+  - Learning rate
+  - Momentum
+  - Regularization coefficient
+  - Transformation method
 
-3. Hyperparameter Tuning
+### 4. Cross-Validation
 
-    The model’s key parameters (number of hidden neurons, learning rate, momentum, and regularization coefficient) are fine-tuned for optimal performance.
+- Evaluates model generalization across multiple data splits.
 
-    The transformation method (standardization vs. normalization) is selected based on performance in cross-validation.
+### 5. Evaluation
 
-4. Cross-Validation
+- Uses Accuracy, Precision, Recall, F1-Score, and ROC-AUC to evaluate performance.
+- Results are saved and logged for review.
 
-    The model is evaluated using cross-validation to assess performance on different data splits and ensure generalization.
+### 6. Result Visualization
 
-5. Evaluation
+- Training progress and evaluation are visualized using:
+  - Accuracy and loss plots
+  - Confusion matrices
+  - ROC curves (if implemented)
 
-    After training, the model is evaluated using various metrics, including accuracy, precision, recall, F1-score, and ROC-AUC.
+### 7. Results Reporting
 
-    Evaluation results are logged and saved for further analysis.
+- Final performance metrics, plots, and tuning logs are stored in the `Results/` directory.
 
-6. Result Visualization
+---
 
-    Model performance is visualized with plots, such as confusion matrices, accuracy plots, and loss curves.
+## 📦 Requirements
 
-    Training progress is also visualized to assess how well the model is learning over time.
+Install the required dependencies:
 
-7. Results Reporting
-
-    Final results, including hyperparameter tuning outcomes, performance metrics, and visualizations, are saved in the Results/ directory.
-
-Requirements
-
-To run this project, ensure you have the required dependencies installed. You can install them using the following command:
-
+```bash
 pip install -r requirements.txt
 
-Running the Project
+▶️ Running the Project
 
-To execute the project, run the main script:
+To execute the entire pipeline (preprocessing, training, evaluation, and visualization), run:
 
 python exercise01.py
 
-This will trigger the entire pipeline, including preprocessing, training, hyperparameter tuning, evaluation, and result visualization.
-Results
+📊 Output & Results
 
-After running the project, the results will be saved in the Results/ directory. You will find:
+After execution, the Results/ directory will contain:
 
-    Accuracy and Loss Plots: Visualizations of accuracy and loss for each fold during cross-validation.
+    Accuracy and loss plots for each fold during cross-validation.
 
-    Evaluation Metrics: A summary of the model’s performance, including accuracy, precision, recall, F1-score, and ROC-AUC.
+    Final evaluation metrics summary.
 
-    Hyperparameter Tuning Results: Insights into the effect of different values of hidden neurons, learning rate, momentum, and regularization coefficient on model performance.
+    Hyperparameter tuning logs and model configuration.
+
+    Plots for model training and evaluation performance.
