@@ -29,7 +29,35 @@ This project aims to predict the likelihood of Alzheimer's disease in patients u
 
 ## 📁 Project Structure
 
-. ├── alzheimers_disease_data.csv # The dataset used for training the model. ├── config.py # Configuration file for model parameters. ├── exercise01.py # Main script to execute the project pipeline. ├── helpers.py # Helper functions for data handling and utilities. ├── modeling/ # Contains model architecture, training, evaluation, etc. │ ├── architecture.py # Defines the neural network architecture. │ ├── cross_validation.py # Implements cross-validation techniques. │ ├── evaluation.py # Contains evaluation metrics and result logging. │ ├── metrics.py # Functions to calculate various performance metrics. │ ├── training.py # Implements model training logic. │ └── tuning.py # Tuning of hyperparameters like learning rate, momentum, etc. ├── preprocessing/ # Data preprocessing functions. │ ├── preprocessing.py # Handles data cleaning, scaling, and outlier detection. ├── reporting/ # Logs and saves experiment results and metrics. │ ├── experiments.py # Tracks the experiments and configuration. │ ├── report_writer.py # Writes results and reports. │ └── result_saving.py # Saves model results, metrics, and plots. ├── visualization/ # Plots and charts for model evaluation and training progress. │ ├── evalutation_plots.py # Plots related to model evaluation metrics. │ ├── plot_base.py # Functions for saving and showing plots. │ └── training_plots.py # Plots the training and validation performance over epochs. ├── requirements.txt # Required dependencies for the project. └── Results/ # Directory for storing results and output plots. └── Standardization/ ├── accuracy_plot_fold_1.png └── neural_network_results.txt
+. ├── alzheimers_disease_data.csv # The dataset used for training the model 
+├── config.py # Configuration file for model parameters 
+├── exercise01.py # Main script to execute the project pipeline 
+├── helpers.py # Helper functions for data handling and utilities
+
+├── modeling/ # Model-related components
+│ ├── architecture.py # Defines the neural network architecture 
+│ ├── cross_validation.py # Implements cross-validation techniques 
+│ ├── evaluation.py # Evaluation metrics and result logging
+│ ├── metrics.py # Functions to calculate various performance metrics
+│ ├── training.py # Implements model training logic 
+│ └── tuning.py # Hyperparameter tuning logic
+
+├── preprocessing/ # Data preprocessing components 
+│ └── preprocessing.py # Data cleaning, scaling, and outlier detection
+
+├── reporting/ # Experiment logging and reporting 
+│ ├── experiments.py # Tracks experiments and configuration
+│ ├── report_writer.py # Writes experiment reports
+│ └── result_saving.py # Saves results, metrics, and plots
+
+├── visualization/ # Plotting and visualization scripts 
+│ ├── evalutation_plots.py # Plots for evaluation metrics
+│ ├── plot_base.py # Helper functions for displaying/saving plots
+│ └── training_plots.py # Visualizes training and validation performance
+
+├── requirements.txt # List of required dependencies
+
+└── Results/ # Output results and visualizations └── Standardization/ ├── accuracy_plot_fold_1.png └── neural_network_results.txt
 
 
 ---
@@ -89,16 +117,6 @@ pip install -r requirements.txt
 
 To execute the entire pipeline (preprocessing, training, evaluation, and visualization), run:
 
-python exercise01.py
+python3 exercise01.py
 
-📊 Output & Results
 
-After execution, the Results/ directory will contain:
-
-    Accuracy and loss plots for each fold during cross-validation.
-
-    Final evaluation metrics summary.
-
-    Hyperparameter tuning logs and model configuration.
-
-    Plots for model training and evaluation performance.
