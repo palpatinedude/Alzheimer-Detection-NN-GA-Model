@@ -57,7 +57,11 @@ This project aims to predict the likelihood of Alzheimer's disease in patients u
 
 ├── requirements.txt # List of required dependencies
 
-└── Results/ # Output results and visualizations └── Standardization/ ├── accuracy_plot_fold_1.png └── neural_network_results.txt
+|── Results/ # Output results and visualizations 
+│ ├── Standardization/
+│ ├── Normalization/
+
+
 
 
 ---
