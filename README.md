@@ -30,34 +30,40 @@ This project aims to predict the likelihood of Alzheimer's disease in patients u
 ## 📁 Project Structure
 
 . ├── alzheimers_disease_data.csv # The dataset used for training the model <br>
-├── config.py # Configuration file for model parameters <br>
-├── exercise01.py # Main script to execute the project pipeline <br>
-├── helpers.py # Helper functions for data handling and utilities<br>
+├── config.py  <br>
+├── exercise01.py<br>
+├── helpers.py <br>
+|── bonus_dir <br>
+| ├── cross_validate.py <br>
+| ├── model.py <br>
+| ├── Results/ <br>
+| ├── save.py <br>
+| ├── tuning_hidden.py <br>
+| ├── visualize.py <br>
+├── modeling/ <br>
+│ ├── architecture.py  <br>
+│ ├── cross_validation.py  <br>
+│ ├── evaluation.py<br>
+│ ├── metrics.py metrics<br>
+│ ├── training.py <br>
+│ └── tuning.py <br>
 
-├── modeling/ # Model-related components<br>
-│ ├── architecture.py # Defines the neural network architecture <br>
-│ ├── cross_validation.py # Implements cross-validation techniques <br>
-│ ├── evaluation.py # Evaluation metrics and result logging<br>
-│ ├── metrics.py # Functions to calculate various performance metrics<br>
-│ ├── training.py # Implements model training logic <br>
-│ └── tuning.py # Hyperparameter tuning logic<br>
+├── preprocessing/  <br>
+│ └── preprocessing.py<br>
 
-├── preprocessing/ # Data preprocessing components <br>
-│ └── preprocessing.py # Data cleaning, scaling, and outlier detection<br>
+├── reporting/  <br>
+│ ├── experiments.py <br>
+│ ├── report_writer.py <br>
+│ └── result_saving.py <br>
 
-├── reporting/ # Experiment logging and reporting <br>
-│ ├── experiments.py # Tracks experiments and configuration<br>
-│ ├── report_writer.py # Writes experiment reports<br>
-│ └── result_saving.py # Saves results, metrics, and plots<br>
+├── visualization/  <br>
+│ ├── evalutation_plots.py<br>
+│ ├── plot_base.py <br>
+│ └── training_plots.py <br>
 
-├── visualization/ # Plotting and visualization scripts <br>
-│ ├── evalutation_plots.py # Plots for evaluation metrics<br>
-│ ├── plot_base.py # Helper functions for displaying/saving plots<br>
-│ └── training_plots.py # Visualizes training and validation performance<br>
+├── requirements.txt<br>
 
-├── requirements.txt # List of required dependencies<br>
-
-|── Results/ # Output results and visualizations <br>
+|── Results/ <br>
 │ ├── Standardization/<br>
 │ ├── Normalization/<br>
 
