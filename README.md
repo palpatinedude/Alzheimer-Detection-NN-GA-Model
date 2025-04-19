@@ -129,4 +129,8 @@ To execute the entire pipeline (preprocessing, training, evaluation, and visuali
 
 python3 exercise01.py
 
+To execute the deep neural network ,run:
+
+python3 bonus.py
+
 
