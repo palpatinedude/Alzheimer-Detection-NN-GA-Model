@@ -59,44 +59,42 @@ Evaluation:
 
 📁 Project Structure
 
-Alzheimer-Detection-NN-GA-Model/
+``` Alzheimer-Detection-NN-GA-Model/
 ├── alzheimers_disease_data.csv
 ├── GA/
-│ ├── config.py
-│ ├── exercise02.py
-│ ├── individual.py
-│ ├── population.py
-│ └── Project_ΥΝ_2024-25_Μέρος-Β.pdf
+│   ├── config.py
+│   ├── exercise02.py
+│   ├── individual.py
+│   ├── population.py
+│   └── Project_ΥΝ_2024-25_Μέρος-Β.pdf
 ├── NN/
-│ ├── exercise01.py
-│ ├── bonus.py
-│ ├── config.py
-│ ├── helpers.py
-│ ├── Project_ΥΝ_2024-25_Μέρος-Α.pdf
-│ ├── bonus_dir/
-│ │ ├── cross_validate.py
-│ │ ├── model.py
-│ │ ├── save.py
-│ │ ├── visualize.py
-│ │ └── Results/
-│ ├── modeling/
-│ │ ├── architecture.py
-│ │ ├── training.py
-│ │ ├── evaluation.py
-│ │ ├── tuning.py
-│ │ └── etc.
-│ ├── preprocessing/
-│ │ └── preprocessing.py
-│ ├── reporting/
-│ │ ├── experiments.py
-│ │ ├── report_writer.py
-│ │ └── result_saving.py
-│ └── Results/
-│ ├── A2/
-│ └── A3/
-├── requirements.txt
-
-
+│   ├── exercise01.py
+│   ├── bonus.py
+│   ├── config.py
+│   ├── helpers.py
+│   ├── Project_ΥΝ_2024-25_Μέρος-Α.pdf
+│   ├── bonus_dir/
+│   │   ├── cross_validate.py
+│   │   ├── model.py
+│   │   ├── save.py
+│   │   ├── visualize.py
+│   │   └── Results/
+│   ├── modeling/
+│   │   ├── architecture.py
+│   │   ├── training.py
+│   │   ├── evaluation.py
+│   │   ├── tuning.py
+│   │   └── etc.
+│   ├── preprocessing/
+│   │   └── preprocessing.py
+│   ├── reporting/
+│   │   ├── experiments.py
+│   │   ├── report_writer.py
+│   │   └── result_saving.py
+│   └── Results/
+│       ├── A2/
+│       └── A3/
+├── requirements.txt ```
 ⚙️ How It Works
 
 🧠 Part A – Neural Network
