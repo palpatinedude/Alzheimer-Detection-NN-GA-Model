@@ -1,4 +1,4 @@
-🧠 Alzheimer's Disease Prediction with Neural Networks and Genetic Algorithms
+# 🧠 Alzheimer's Disease Prediction with Neural Networks and Genetic Algorithms
 
 This project aims to predict the likelihood of Alzheimer's disease in patients using machine learning, specifically a Neural Network (NN), and optimize its input features using a Genetic Algorithm (GA). It is divided into two main parts:
 
@@ -9,7 +9,7 @@ The goal is to build a robust model for early Alzheimer's detection, reduce over
 
 ---
 
-Key Features
+# Key Features
 
 Part A – Neural Network-Based Prediction
 
@@ -64,7 +64,7 @@ Evaluation:
 
 ---
 
-Project Structure
+# Project Structure
 
 ```plaintext
 Alzheimer-Detection-NN-GA-Model/
@@ -107,7 +107,7 @@ Alzheimer-Detection-NN-GA-Model/
 
 ---
 
-How It Works
+# How It Works
 
 Part A – Neural Network
 
@@ -158,7 +158,7 @@ Part B – Genetic Algorithm
 
 ---
 
-Running the Project
+# Running the Project
 
 # Install dependencies
 pip install -r requirements.txt
@@ -174,7 +174,7 @@ python3 GA/exercise02.py
 
 ---
 
-Notes
+# Notes
 
 - The NN uses weights obtained from full training (no retraining per GA individual) to speed up GA execution.
 - All results, including performance metrics, convergence plots, and tuning logs, are saved under the appropriate Results/ subdirectories.
@@ -182,14 +182,14 @@ Notes
 
 ---
 
-To Do (Future Improvements)
+# To Do (Future Improvements)
 
 - Transition entire codebase, especially NN pipeline, to an Object-Oriented Programming (OOP) structure.
 
 
 ---
 
-If you want me to save this as a .md or text file, just let me know.
+
 
 
 
