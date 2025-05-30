@@ -103,7 +103,7 @@ Alzheimer-Detection-NN-GA-Model/
 │       ├── A2/
 │       └── A3/
 ├── requirements.txt
-
+```
 
 ---
 
