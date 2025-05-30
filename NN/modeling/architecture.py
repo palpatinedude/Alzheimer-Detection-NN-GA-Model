@@ -9,7 +9,7 @@ from sklearn.linear_model import LogisticRegression
 from keras.regularizers import l2
 
 # this function wraps the model creation and allows the user to choose model type ('ann' or 'logistic')
-def create_model_wrapper(model_type, input_dim, hidden_units, learning_rate, momentum,regularization):
+def create_model_wrapper(model_type, input_dim, hidden_units, learning_rate, momentum,regularization, simple_metrics):
     return create_model(
         input_dim=input_dim ,
         hidden_units=hidden_units,
@@ -17,9 +17,40 @@ def create_model_wrapper(model_type, input_dim, hidden_units, learning_rate, mom
         momentum=momentum,
         model_type=model_type,  # determines which model to create
         regularization=regularization,  # regularization parameter 
+        simple_metrics=simple_metrics  # whether to use simple metrics or not
     )
 
 # this function creates the specified model based on the type (ann or logistic regression)
+def create_model(input_dim=None, hidden_units=None, learning_rate=0.001, momentum=None, model_type='ann', regularization=None, simple_metrics=None):
+    if model_type == 'logistic':
+        model = LogisticRegression(solver='liblinear')
+    else:
+        model = Sequential([
+            Input(shape=(input_dim,), dtype='float32'),  # set dtype explicitly here
+            Dense(hidden_units, activation='relu', 
+                  kernel_regularizer=l2(regularization) if regularization else None,
+                  dtype='float32'),  # also here
+            Dense(1, activation='sigmoid', 
+                  kernel_regularizer=l2(regularization) if regularization else None,
+                  dtype='float32')
+        ])
+        if momentum is None:
+            momentum = 0.0
+        optimizer = SGD(learning_rate=learning_rate, momentum=momentum)
+
+        if simple_metrics:
+            metrics = ['accuracy', MeanSquaredError(name='mse')]
+        else:
+            metrics = ['accuracy', MeanSquaredError(name='mse'), BinaryCrossentropy(name='ce_loss')]
+
+        model.compile(
+            loss='binary_crossentropy',
+            optimizer=optimizer,
+            metrics=metrics
+        )
+    return model
+
+'''
 def create_model(input_dim=None, hidden_units=None, learning_rate=0.001, momentum=None, model_type='ann',regularization=None):
     if model_type == 'logistic':  # logistic regression model
         model = LogisticRegression(solver='liblinear')  # solver for logistic regression
@@ -43,3 +74,4 @@ def create_model(input_dim=None, hidden_units=None, learning_rate=0.001, momentu
         )
     return model  # returns the created model
 
+'''

@@ -100,4 +100,12 @@ def save_best_model_results(output_dir,
     model.save_weights(weights_path)
     print(f"Best model weights saved to {weights_path}")
 
+    for layer in model.layers:
+     weights = layer.get_weights()
+     if weights:
+        print(f"Layer {layer.name} weights loaded, shape: {[w.shape for w in weights]}")
+     else:
+        print(f"Layer {layer.name} has no weights or weights not loaded")
+
+
 

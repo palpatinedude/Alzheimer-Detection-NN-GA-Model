@@ -1,62 +1,49 @@
 import numpy as np
 import os
 import json
+import warnings
 from modeling.architecture import create_model_wrapper
 
 class Individual:
     """
     Represents an individual in a genetic algorithm for feature selection.
-    The chromosome is a binary vector encoding selected (1) or unselected (0) features.
-    Fitness is evaluated based on model performance and feature usage penalty.
+    Chromosome: binary vector encoding presence(1)/absence(0) of features.
+    Fitness: based on NN validation loss + penalty for feature count.
     """
 
     def __init__(self, n_features=32, chromosome=None):
-        """
-        Initialize individual with a chromosome representing feature selection.
-        If chromosome not provided, generate a random valid one.
-        """
         self.n_features = n_features
         if chromosome is not None:
-            self.chromosome = chromosome
+            self.chromosome = np.array(chromosome, dtype=np.int8)
         else:
             self.chromosome = self.encode()
         self.fitness = None
 
     def encode(self):
-        """
-        Generate a random chromosome (list of 0/1) ensuring at least one feature is selected.
-        """
+        """Randomly generate chromosome with at least one feature selected."""
         while True:
-            chromosome = np.random.randint(0, 2, size=self.n_features)
-            if np.any(chromosome):  # Ensure at least one feature is included
-                return chromosome.tolist()
+            chrom = np.random.randint(0, 2, size=self.n_features, dtype=np.int8)
+            if np.any(chrom):
+                return chrom
 
     def decode(self, X):
         """
-        Apply zero-masking to input data X based on chromosome.
-        Features not selected (chromosome=0) are zeroed out, but all features are retained.
-        
-        Returns a copy of X with masked features.
+        Mask input X based on chromosome.
+        Zero-out unselected features, return float32 array.
         """
-        mask = np.array(self.chromosome, dtype=bool)  # Convert chromosome to boolean mask
-        X_masked = X.copy()
-
-        if hasattr(X_masked, 'loc'):  # Handle pandas DataFrame
-            X_masked.loc[:, ~mask] = 0  # Zero out unselected features
-        else:  # Handle numpy arrays
-            X_masked[:, ~mask] = 0
-
-        return X_masked
+        assert X.shape[1] == self.n_features, \
+            f"Expected {self.n_features} features, got {X.shape[1]}"
+        X_array = np.asarray(X, dtype=np.float32)
+        mask = self.chromosome.astype(bool)
+        X_array[:, ~mask] = 0.0
+        return X_array
 
     def evaluate_fitness(self, X, y, best_params_path=None, weights_path=None, alpha=0.05):
         """
-        Evaluate fitness of the individual using:
-        - Cross-entropy loss from the pretrained model on masked input.
-        - A penalty proportional to the fraction of selected features.
-        
-        Returns the fitness score as: 1 - cross_entropy_loss - alpha * (num_features_used / total_features).
+        Evaluate fitness: combine cross-entropy loss and penalty for feature count.
+        Uses pretrained NN weights and masks input features.
         """
-        # Load best hyperparameters if path provided; otherwise use defaults
+        # Load hyperparameters
         if best_params_path and os.path.exists(best_params_path):
             with open(best_params_path, 'r') as f:
                 best_params = json.load(f)
@@ -65,71 +52,87 @@ class Individual:
             momentum = best_params.get("momentum", 0.0)
             regularization = best_params.get("regularization_lambda", 0.0)
         else:
-            print("Warning: best_params_path not found or not provided, using default hyperparameters.")
             hidden_units = 64
             learning_rate = 0.001
             momentum = 0.0
             regularization = 0.0
+            print("Warning: Using default hyperparameters.")
 
-        # Create the ANN model with given hyperparameters
+        # Create model
         model = create_model_wrapper(
             'ann',
             input_dim=self.n_features,
             hidden_units=hidden_units,
             learning_rate=learning_rate,
             momentum=momentum,
-            regularization=regularization
+            regularization=regularization,
+            simple_metrics=True
         )
 
         # Load pretrained weights if available
         if weights_path and os.path.exists(weights_path):
-            model.load_weights(weights_path)
+            try:
+                with warnings.catch_warnings():
+                    warnings.filterwarnings("ignore", message=".*Skipping variable loading for optimizer.*")
+                    model.load_weights(weights_path)
+            except Exception as e:
+                print(f"Warning: Failed to load weights: {e}")
         else:
-            print(f"Warning: pretrained weights not found at '{weights_path}', using untrained model.")
+            print(f"Warning: Weights not found at '{weights_path}', using untrained model.")
 
-        # Mask input features according to chromosome
+        # Mask input features
         X_masked = self.decode(X)
 
-        # Evaluate model on masked data to get loss and metrics
+        # Evaluate model
         loss_values = model.evaluate(X_masked, y, verbose=0)
+        ce_loss = loss_values[0] if loss_values else 1.0  # cross-entropy loss
 
-        # Extract cross-entropy loss from evaluation results (fallback to 1.0 if missing)
-        ce_loss = dict(zip(model.metrics_names, loss_values)).get('ce_loss', 1.0)
+        # Penalty based on feature count
+        penalty = alpha * (np.sum(self.chromosome) / self.n_features)
 
-        # Calculate penalty based on fraction of features selected
-        mask = np.array(self.chromosome, dtype=bool)
-        penalty = alpha * (np.sum(mask) / self.n_features)
-
-        # Fitness combines accuracy and penalty; higher is better
-        self.fitness = 1 - ce_loss - penalty
-
+        # Fitness (higher is better)
+        self.fitness = 1 / (1 + ce_loss + penalty)
         return self.fitness
 
     def mutate(self, mutation_rate=0.1):
         """
-        Apply mutation by randomly flipping bits in the chromosome based on mutation_rate.
-        Ensure at least one feature remains selected after mutation.
+        Flip bits randomly with probability mutation_rate.
+        Ensure at least one feature is selected after mutation.
         """
         for i in range(len(self.chromosome)):
             if np.random.rand() < mutation_rate:
-                self.chromosome[i] = 1 - self.chromosome[i]  # Flip bit
+                self.chromosome[i] = 1 - self.chromosome[i]
 
-        # Make sure chromosome has at least one selected feature
+        # Ensure at least one selected feature
         if np.sum(self.chromosome) == 0:
             self.chromosome[np.random.randint(len(self.chromosome))] = 1
 
     def crossover(self, other):
         """
-        Perform one-point crossover with another individual.
-        Returns two offspring individuals.
+        Single-point crossover with another individual.
+        Returns two offspring.
         """
-        point = np.random.randint(1, len(self.chromosome))  # Crossover point
-        child1_chrom = self.chromosome[:point] + other.chromosome[point:]
-        child2_chrom = other.chromosome[:point] + self.chromosome[point:]
-        return Individual(chromosome=child1_chrom), Individual(chromosome=child2_chrom)
+        point = np.random.randint(1, len(self.chromosome))
+        child1_chrom = np.concatenate([self.chromosome[:point], other.chromosome[point:]])
+        child2_chrom = np.concatenate([other.chromosome[:point], self.chromosome[point:]])
+
+        if not np.any(child1_chrom):
+            child1_chrom[np.random.randint(len(child1_chrom))] = 1
+        if not np.any(child2_chrom):
+            child2_chrom[np.random.randint(len(child2_chrom))] = 1
+
+        return Individual(n_features=self.n_features, chromosome=child1_chrom), \
+               Individual(n_features=self.n_features, chromosome=child2_chrom)
+
+    def num_selected_features(self):
+        return int(np.sum(self.chromosome))
+
+    def copy(self):
+        return Individual(n_features=self.n_features, chromosome=self.chromosome.copy())
 
     def __str__(self):
-        """
-        String representation showing chromosome and fitness.
-        """
-        return f"Chromosome: {self.chromosome}\nFitness: {self.fitness:.4f}" if self.fitness is not None else f"Chromosome: {self.chromosome}\nFitness: Not evaluated"
+        chrom_list = self.chromosome.tolist()
+        if self.fitness is not None:
+            return f"Chromosome: {chrom_list}\nFitness: {self.fitness:.4f}"
+        else:
+            return f"Chromosome: {chrom_list}\nFitness: Not evaluated"
