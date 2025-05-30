@@ -2,64 +2,72 @@
 
 This project aims to predict the likelihood of Alzheimer's disease in patients using machine learning, specifically a Neural Network (NN), and optimize its input features using a Genetic Algorithm (GA). It is divided into two main parts:
 
-Part A: Train and optimize a neural network model for Alzheimer's prediction.  
-Part B: Use a genetic algorithm for feature selection based on the fixed, pre-trained NN from Part A.
+- Part A: Train and optimize a neural network model for Alzheimer's prediction.
+- Part B: Use a genetic algorithm for feature selection based on the fixed, pre-trained NN from Part A.
 
 The goal is to build a robust model for early Alzheimer's detection, reduce overfitting, and improve generalization by selecting the most relevant features.
 
-🔍 Key Features
+---
 
-✅ Part A – Neural Network-Based Prediction
+Key Features
 
-- Data Preprocessing  
-  - Handles missing values, scaling (standardization or normalization), and outlier detection.
+Part A – Neural Network-Based Prediction
 
-- Model Training & Architecture  
-  - A feedforward neural network with tunable hyperparameters.  
-  - Implemented in a modular fashion for experimentation.  
-  - NOTE: Future versions will transition this to an object-oriented approach for better modularity and extensibility.
+- Data Preprocessing
+  Handles missing values, scaling (standardization or normalization), and outlier detection.
 
-- Hyperparameter Tuning  
-  - Hidden layer size  
-  - Learning rate  
-  - Momentum  
-  - Regularization  
+- Model Training & Architecture
+  - Feedforward neural network with tunable hyperparameters.
+  - Modular implementation for experimentation.
+  - Note: Future versions will transition to an object-oriented approach for better modularity and extensibility.
+
+- Hyperparameter Tuning
+  - Hidden layer size
+  - Learning rate
+  - Momentum
+  - Regularization
   - Data transformation method
 
-- Cross-Validation & Evaluation  
-  - K-fold cross-validation  
+- Cross-Validation & Evaluation
+  - K-fold cross-validation
   - Metrics: Accuracy, Precision, Recall, F1-score, ROC-AUC
 
-- Visualization & Reporting  
-  - Training/validation curves, confusion matrices, hyperparameter convergence plots
+- Visualization & Reporting
+  Training/validation curves, confusion matrices, hyperparameter convergence plots.
 
-🧬 Part B – Genetic Algorithm for Feature Selection
+---
 
-Goal:  
+Part B – Genetic Algorithm for Feature Selection
+
+Goal:
 Select the most informative subset of 34 features to reduce dimensionality while preserving (or improving) predictive performance.
 
-Key Components:  
-- Encoding: Each individual is a binary vector (length 34), where 1 = keep feature, 0 = drop.  
+Key Components:
+- Encoding: Each individual is a binary vector (length 34), where 1 = keep feature, 0 = drop.
 - Population Initialization: Randomly generate individuals representing different feature subsets.
 
-Fitness Function:  
-- Based on the validation performance (cross-entropy loss or accuracy) of the fixed NN from Part A.  
+Fitness Function:
+- Based on validation performance (cross-entropy loss or accuracy) of the fixed NN from Part A.
 - Penalizes solutions using too many features to balance model simplicity and performance.
 
-Selection Methods: Tournament selection, rank-based, or roulette wheel.  
-Crossover Strategies: Single-point, multi-point, and uniform crossover.  
-Mutation & Elitism: Introduces diversity and preserves best solutions.
+Genetic Operators:
+- Selection: Tournament, rank-based, or roulette wheel.
+- Crossover: Single-point, multi-point, uniform crossover.
+- Mutation & Elitism: Introduce diversity and preserve best solutions.
 
-Evaluation:  
-- Tested over multiple configurations of population size, crossover/mutation probabilities.  
-- Termination Criteria:  
-  • No improvement over N generations  
-  • <1% change in best fitness  
-  • Max generations reached
+Evaluation:
+- Tested with multiple configurations of population size, crossover/mutation probabilities.
+- Termination criteria:
+  - No improvement over N generations
+  - Less than 1% change in best fitness
+  - Max generations reached
 
-📁 Project Structure
+---
 
-``` Alzheimer-Detection-NN-GA-Model/
+Project Structure
+
+```plaintext
+Alzheimer-Detection-NN-GA-Model/
 ├── alzheimers_disease_data.csv
 ├── GA/
 │   ├── config.py
@@ -94,105 +102,94 @@ Evaluation:
 │   └── Results/
 │       ├── A2/
 │       └── A3/
-├── requirements.txt ```
-⚙️ How It Works
+├── requirements.txt
 
-🧠 Part A – Neural Network
 
-- Preprocessing  
-  - Cleans and scales data, handles outliers.
+---
 
-- Model Definition  
-  - Fully connected NN defined in architecture.py.
+How It Works
 
-- Hyperparameter Optimization  
-  - Explored via grid/random search, results saved in Results/A2/ and A3/.
+Part A – Neural Network
 
-- Cross-Validation & Evaluation  
-  - Evaluates generalization performance using k-fold CV.
+- Preprocessing
+  Cleans and scales data, handles outliers.
 
-- Visualization & Logging  
-  - Accuracy/loss curves and performance summaries saved under Results/.
+- Model Definition
+  Fully connected NN defined in architecture.py.
 
-- ⚠️ Future Work:  
-  - Refactor NN pipeline using object-oriented programming principles for better structure and flexibility.
+- Hyperparameter Optimization
+  Explored via grid/random search; results saved in Results/A2/ and A3/.
 
-🧬 Part B – Genetic Algorithm
+- Cross-Validation & Evaluation
+  Evaluates generalization performance using k-fold cross-validation.
 
-- Feature Encoding  
-  - Individuals are binary masks of features (length = 34).
+- Visualization & Logging
+  Accuracy/loss curves and performance summaries saved under Results/.
 
-- Fitness Evaluation  
-  - Applies fixed NN weights and computes validation accuracy or loss + feature penalty.
+- Future Work:
+  Refactor NN pipeline using object-oriented programming for better structure and flexibility.
 
-- GA Workflow  
-  - Initialize population  
-  - Evaluate fitness  
-  - Select, crossover, mutate  
-  - Track best individuals
+---
 
-- Parameter Sweeps  
-  - Experiments conducted across multiple GA configurations, as listed:
+Part B – Genetic Algorithm
 
-    | ID | Pop Size | Crossover Prob | Mutation Prob |
-    |----|----------|----------------|--------------|
-    | 1  | 20       | 0.6            | 0.00         |
-    | 2  | 20       | 0.6            | 0.01         |
-    | 3  | 20       | 0.6            | 0.10         |
-    | 4  | 20       | 0.9            | 0.01         |
-    | 5  | 20       | 0.1            | 0.01         |
-    | 6  | 200      | 0.6            | 0.00         |
-    | 7  | 200      | 0.6            | 0.01         |
-    | 8  | 200      | 0.6            | 0.10         |
-    | 9  | 200      | 0.9            | 0.01         |
-    | 10 | 200      | 0.1            | 0.01         |
+- Feature Encoding
+  Individuals are binary masks of features (length = 34).
 
-- Convergence Curves & Plots  
-  - Average fitness vs. generation plots used for convergence analysis.
+- Fitness Evaluation
+  Applies fixed NN weights and computes validation accuracy or loss plus a feature penalty.
 
-- Final Evaluation  
-  - Compare NN (GA-selected features) vs. full NN:  
-    • Accuracy  
-    • Generalization  
-    • Overfitting  
-    • Retraining effect using the entire dataset
+- GA Workflow:
+  1. Initialize population
+  2. Evaluate fitness
+  3. Select, crossover, mutate
+  4. Track best individuals
 
-▶️ Running the Project
 
-Install dependencies:
+- Convergence Curves & Plots
+  Average fitness vs. generation plots for convergence analysis.
 
+- Final Evaluation
+  Compare NN (GA-selected features) vs. full NN on:
+  - Accuracy
+  - Generalization
+  - Overfitting
+  - Retraining effect using the entire dataset
+
+---
+
+Running the Project
+
+# Install dependencies
 pip install -r requirements.txt
 
-
-Run NN pipeline (Part A):
-
+# Run NN pipeline (Part A)
 python3 NN/exercise01.py
 
-
-Run optimized NN (bonus):
-
+# Run optimized NN (bonus)
 python3 NN/bonus.py
 
-
-Run GA for feature selection (Part B):
-
+# Run GA for feature selection (Part B)
 python3 GA/exercise02.py
 
+---
 
-📝 Notes
+Notes
 
-- The NN uses weights obtained from full training (no retraining per GA individual) to speed up GA execution.  
-- All results, including performance metrics, convergence plots, and tuning logs, are saved under the appropriate Results/ subdirectories.  
+- The NN uses weights obtained from full training (no retraining per GA individual) to speed up GA execution.
+- All results, including performance metrics, convergence plots, and tuning logs, are saved under the appropriate Results/ subdirectories.
 - Code is modular and organized by functionality for easy modification and testing.
 
-🛠️ To Do (Future Improvements)
+---
 
-- Transition entire codebase, especially NN pipeline, to an **Object-Oriented Programming (OOP)** structure.  
-- Add model checkpointing and automatic resume features.  
-- Improve logging system using standardized logging libraries.  
-- Integrate real-time dashboards (e.g., TensorBoard or Matplotlib live updates).  
-- Introduce ensemble methods or advanced meta-optimization on GA outcomes.  
-- Add automated report generation in PDF/HTML format.
+To Do (Future Improvements)
+
+- Transition entire codebase, especially NN pipeline, to an Object-Oriented Programming (OOP) structure.
+
+
+---
+
+If you want me to save this as a .md or text file, just let me know.
 
 
 
