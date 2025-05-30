@@ -74,17 +74,28 @@ Alzheimer-Detection-NN-GA-Model/
 │   ├── helpers.py
 │   ├── Project_ΥΝ_2024-25_Μέρος-Α.pdf
 │   ├── bonus_dir/
-│   │   ├── cross_validate.py, model.py, save.py, visualize.py
+│   │   ├── cross_validate.py
+│   │   ├── model.py
+│   │   ├── save.py
+│   │   ├── visualize.py
 │   │   └── Results/
 │   ├── modeling/
-│   │   ├── architecture.py, training.py, evaluation.py, tuning.py, etc.
+│   │   ├── architecture.py
+│   │   ├── training.py
+│   │   ├── evaluation.py
+│   │   ├── tuning.py
+│   │   └── etc.
 │   ├── preprocessing/
 │   │   └── preprocessing.py
 │   ├── reporting/
-│   │   ├── experiments.py, report_writer.py, result_saving.py
+│   │   ├── experiments.py
+│   │   ├── report_writer.py
+│   │   └── result_saving.py
 │   └── Results/
-│       ├── A2/, A3/
+│       ├── A2/
+│       └── A3/
 ├── requirements.txt
+
 
 ⚙️ How It Works
 
