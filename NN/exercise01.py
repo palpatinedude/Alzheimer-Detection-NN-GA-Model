@@ -16,6 +16,7 @@ from preprocessing.preprocessing import inspect_data
 from reporting.experiments import select_best_config_hidden, select_best_config_hyper,select_best_config_regularization
 import os
 import shutil
+import json
 from sklearn.model_selection import train_test_split
 from helpers import print_kfold_results, print_test_metrics
 from modeling.cross_validation import logistic_scaling
@@ -23,6 +24,7 @@ from modeling.architecture import create_model_wrapper
 from modeling.training import train_model
 from modeling.evaluation import evaluate_performance
 from visualization.evalutation_plots import plot_confusion_matrix
+from reporting.result_saving import save_best_model_results
 
 
 
@@ -106,16 +108,19 @@ def main(file_path):
      f"ROC AUC: {roc_auc:.4f}\n"
    )
 
-    # Save txt file
-    results_path = os.path.join(RESULTS_DIR, "best_ann_model_summary.txt")
-    with open(results_path, "w") as f:
-      f.write(config_summary)
-
-    print(f"\nBest model summary written to {results_path}")
-
+   
+    save_best_model_results(
+      output_dir=RESULTS_DIR,
+      model=final_model,
+      best_h1=best_h1,
+      best_lr=best_lr,
+      best_momentum=best_momentum,
+      best_reg=best_reg,
+      config_summary=config_summary
+   )
    
 if __name__ == "__main__":
-    main("alzheimers_disease_data.csv")
+    main("../alzheimers_disease_data.csv")
 
 
 

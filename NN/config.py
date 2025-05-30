@@ -1,7 +1,7 @@
 # this file defines configuration constants for training and saving model results
 
-RESULTS_DIR = "/home/marianthi/Desktop/ceid/semester_10/υπολογιστικη/Project_1/Results"  # this is where all result files will be saved for first part
-RESULTS_DIR_BONUS = "/home/marianthi/Desktop/ceid/semester_10/υπολογιστικη/Project_1/bonus_dir/Results"  # this is where all result files will be saved for bonus part
+RESULTS_DIR = "/home/marianthi/Desktop/ceid/semester_10/υπολογιστικη/Alzheimer-Detection-NN-GA-Model/NN/Results"  # this is where all result files will be saved for first part
+RESULTS_DIR_BONUS = "/home/marianthi/Desktop/ceid/semester_10/υπολογιστικη/Alzheimer-Detection-NN-GA-Model/NN/bonus_dir/Results"  # this is where all result files will be saved for bonus part
 EPOCHS = 100  # this is the maximum number of training epochs
 BATCH_SIZE = 32  # this is the batch size used during training ,relative small dataset
 PATIENCE = 10  # this is the number of epochs to wait for early stopping

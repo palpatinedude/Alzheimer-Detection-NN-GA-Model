@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from scipy.stats import zscore
-from visualization.evalutation_plots import plot_histograms
+#from visualization.evalutation_plots import plot_histograms
 
 # this function loads csv data into a pandas dataframe
 def load_data(file_path):

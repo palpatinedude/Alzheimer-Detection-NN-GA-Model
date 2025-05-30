@@ -1,6 +1,7 @@
 # this file saves results for hidden unit experiments and hyperparameter tuning, and writes performance summaries to text files
 
 import os
+import json
 from visualization.training_plots import plot_convergence_for_hidden_units, plot_convergence_for_lr_momentum,plot_regularization_accuracy,plot_regularization_ce_loss
 from reporting.report_writer import write_fold_metrics, write_summary_table, write_final_stats, write_hyperparameter_summary, write_regularization_summary
 from helpers import create_results_folder
@@ -66,3 +67,37 @@ def save_results_regularization(output_dir, results):
         f.write("\n" + "=" * 80 + "\n")
 
     print(f"\nResults saved to: {output_dir}")
+
+
+def save_best_model_results(output_dir,
+                            model,
+                            best_h1,
+                            best_lr,
+                            best_momentum,
+                            best_reg,
+                            config_summary):
+
+    # Save txt file
+    results_path = os.path.join(output_dir, "best_ann_model_summary.txt")
+    with open(results_path, "w") as f:
+        f.write(config_summary)
+    print(f"\nBest model summary written to {results_path}")
+
+    # Save hyperparameters JSON
+    best_params = {
+        "hidden_units": best_h1,
+        "learning_rate": best_lr,
+        "momentum": best_momentum,
+        "regularization_lambda": best_reg
+    }
+    params_path = os.path.join(output_dir, "best_ann_hyperparameters.json")
+    with open(params_path, "w") as json_file:
+        json.dump(best_params, json_file, indent=4)
+    print(f"Best hyperparameters saved to {params_path}")
+
+    # Save model weights
+    weights_path = os.path.join(output_dir, 'best_ann_model.weights.h5')
+    model.save_weights(weights_path)
+    print(f"Best model weights saved to {weights_path}")
+
+
