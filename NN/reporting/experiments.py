@@ -1,7 +1,7 @@
 # this script selects the best configuration for hidden layer size , hyperparameters and regularization coefficient
 
 
-from config import RESULTS_DIR,REGULARIZATION_VALUES
+from config import RESULTS_DIR_NN,REGULARIZATION_VALUES
 from reporting.result_saving import save_results_hidden, save_results_hyper,save_results_regularization
 from modeling.tuning import tuning_hidden, tuning_hyper, tuning_regularization
 from visualization.evalutation_plots import plot_comparison_accuracy_ce_loss, plot_hyper_comparison
@@ -22,10 +22,10 @@ def select_best_config_hidden(X_scaled, y_train):
     )
 
     # compare accuracy and cross entropy loss for different configurations
-    plot_comparison_accuracy_ce_loss(results_all, hidden_units_options,RESULTS_DIR)
+    plot_comparison_accuracy_ce_loss(results_all, hidden_units_options,RESULTS_DIR_NN)
 
     # save results for each configuration
-    save_results_hidden(RESULTS_DIR,  summary_table, results_all, hidden_units_options)
+    save_results_hidden(RESULTS_DIR_NN,  summary_table, results_all, hidden_units_options)
 
     # print the best found configuration
     print(f"\nBest Configuration: H1 = {best_config} (Accuracy = {best_score:.4f})")
@@ -50,10 +50,10 @@ def select_best_config_hyper(X_scaled, y_train, hidden_units):
     )
 
     # compare accuracy and cross entropy loss for different combinations
-    plot_hyper_comparison(results, RESULTS_DIR)
+    plot_hyper_comparison(results, RESULTS_DIR_NN)
 
     # save all hyperparameter results
-    save_results_hyper(RESULTS_DIR, results)
+    save_results_hyper(RESULTS_DIR_NN, results)
 
     # print the best combination found
     best_accuracy = best_result[1]['accuracy']  # validation accuracy
@@ -83,7 +83,7 @@ def select_best_config_regularization(X_scaled, y_train, hidden_units,  best_lr,
     )
 
     # save all regularization results
-    save_results_regularization(RESULTS_DIR,  results)
+    save_results_regularization(RESULTS_DIR_NN,  results)
 
     # print the best combination found
     best_accuracy = best_result[1]['accuracy']  # validation accuracy

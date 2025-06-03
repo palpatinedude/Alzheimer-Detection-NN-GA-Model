@@ -1,8 +1,4 @@
 import numpy as np
-import os
-import json
-import warnings
-from modeling.architecture import create_model_wrapper
 
 class Individual:
     """
@@ -38,59 +34,23 @@ class Individual:
         X_array[:, ~mask] = 0.0
         return X_array
 
-    def evaluate_fitness(self, X, y, best_params_path=None, weights_path=None, alpha=0.05):
+    def evaluate_fitness(self, model, X_val, y_val, alpha=0.05):
         """
-        Evaluate fitness: combine cross-entropy loss and penalty for feature count.
-        Uses pretrained NN weights and masks input features.
+        Evaluate fitness using a pretrained model and masked validation data.
+        Model is passed preloaded (avoid rebuilding/loading weights each time).
         """
-        # Load hyperparameters
-        if best_params_path and os.path.exists(best_params_path):
-            with open(best_params_path, 'r') as f:
-                best_params = json.load(f)
-            hidden_units = best_params.get("hidden_units", 64)
-            learning_rate = best_params.get("learning_rate", 0.001)
-            momentum = best_params.get("momentum", 0.0)
-            regularization = best_params.get("regularization_lambda", 0.0)
-        else:
-            hidden_units = 64
-            learning_rate = 0.001
-            momentum = 0.0
-            regularization = 0.0
-            print("Warning: Using default hyperparameters.")
+        # Mask input features according to chromosome
+        X_masked = self.decode(X_val)
 
-        # Create model
-        model = create_model_wrapper(
-            'ann',
-            input_dim=self.n_features,
-            hidden_units=hidden_units,
-            learning_rate=learning_rate,
-            momentum=momentum,
-            regularization=regularization,
-            simple_metrics=True
-        )
+        # Evaluate model performance on masked data
+        loss_values = model.evaluate(X_masked, y_val, verbose=0)
+        ce_loss = loss_values[0] if loss_values else 1.0  # cross entropy loss
+    
+        # Quadratic penalty for the number of selected features
+        num_features = np.sum(self.chromosome)
+        penalty = alpha * (num_features / self.n_features) ** 2
 
-        # Load pretrained weights if available
-        if weights_path and os.path.exists(weights_path):
-            try:
-                with warnings.catch_warnings():
-                    warnings.filterwarnings("ignore", message=".*Skipping variable loading for optimizer.*")
-                    model.load_weights(weights_path)
-            except Exception as e:
-                print(f"Warning: Failed to load weights: {e}")
-        else:
-            print(f"Warning: Weights not found at '{weights_path}', using untrained model.")
-
-        # Mask input features
-        X_masked = self.decode(X)
-
-        # Evaluate model
-        loss_values = model.evaluate(X_masked, y, verbose=0)
-        ce_loss = loss_values[0] if loss_values else 1.0  # cross-entropy loss
-
-        # Penalty based on feature count
-        penalty = alpha * (np.sum(self.chromosome) / self.n_features)
-
-        # Fitness (higher is better)
+        # Fitness function: higher is better
         self.fitness = 1 / (1 + ce_loss + penalty)
         return self.fitness
 

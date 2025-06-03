@@ -3,7 +3,7 @@
 
 import os
 import numpy as np
-from config import RESULTS_DIR
+from config import RESULTS_DIR_NN
 from visualization.plot_base import plot_line_chart
 
 # this function plots convergence of accuracy for different lr/momentum pairs
@@ -54,11 +54,11 @@ def plot_convergence_for_hidden_units(results, output_dir, hidden_units_options)
 # this function plots convergence and early stopping for a given fold
 def plot_convergence_and_early_stopping(fold, history, patience, hidden_units, learning_rate, momentum=None, regularization=None):
     if momentum is None and regularization is None:
-        output_dir = os.path.join(RESULTS_DIR, 'A2', f'hidden_units_{hidden_units}')  # directory based on hidden_units
+        output_dir = os.path.join(RESULTS_DIR_NN, 'A2', f'hidden_units_{hidden_units}')  # directory based on hidden_units
     elif momentum is not None and regularization is None:
-        output_dir = os.path.join(RESULTS_DIR, 'A3', f'learning_rate_momentum_{learning_rate}_{momentum}')  # directory based on learning rate and momentum
+        output_dir = os.path.join(RESULTS_DIR_NN, 'A3', f'learning_rate_momentum_{learning_rate}_{momentum}')  # directory based on learning rate and momentum
     elif momentum is not None and regularization is not None:
-        output_dir = os.path.join(RESULTS_DIR, 'A4', f'regularization_{regularization}')  # directory based on all parameters
+        output_dir = os.path.join(RESULTS_DIR_NN, 'A4', f'regularization_{regularization}')  # directory based on all parameters
         
     # create directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)

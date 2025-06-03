@@ -1,17 +1,25 @@
-from config import data_path, params_path, weights_path
-import pandas as pd
 import numpy as np
-from preprocessing.preprocessing import inspect_data
-from individual import Individual
+from GA import GeneticAlgorithm
+from config import VAL_DATA_PATH, params_path, weights_path, RESULTS_DIR_GA
 
+# Load validation data
+val_data = np.load(VAL_DATA_PATH)
+X_val = val_data["X_val"]
+y_val = val_data["y_val"]
 
-# Load and inspect data
-X, y = inspect_data(data_path)
+# Run genetic algorithm
+ga = GeneticAlgorithm(
+    n_features=X_val.shape[1],
+    pop_size=30,
+    num_generations=15,
+    elitism=1,
+    mutation_rate=0.1,
+    tournament_size=3,
+    alpha=0.05,
+    best_params_path=params_path,
+    weights_path=weights_path,
+    results_dir=RESULTS_DIR_GA,
+    plots=True
+)
 
-
-# Create and evaluate individual using best model weights and hyperparams
-ind = Individual()
-fitness = ind.evaluate_fitness(X, y, best_params_path=params_path, weights_path=weights_path)
-
-# Print fitness or individual details
-print(ind)
+best_individual = ga.run(X_val=X_val, y_val=y_val)

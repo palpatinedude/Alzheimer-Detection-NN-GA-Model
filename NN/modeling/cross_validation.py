@@ -14,7 +14,7 @@ import pandas as pd
 
 
 # this runs a single round of cross-validation, collecting metrics for each fold
-def cross_validate_fold(skf, X, y, model_type, hidden_units, learning_rate, momentum,regularization):
+def cross_validate_fold(skf, X, y, model_type, hidden_units, learning_rate, momentum,regularization,simple_metrics=None):
     # initialize structures for storing fold-wise metrics
     fold_results = {m: [] for m in ['accuracy', 'precision', 'recall', 'f1', 'roc_auc', 'confusion_matrices']}
     fold_metrics = {'accuracy': [], 'ce_loss': [], 'mse': []}
@@ -28,7 +28,7 @@ def cross_validate_fold(skf, X, y, model_type, hidden_units, learning_rate, mome
         y_train, y_val = y.iloc[train_idx], y.iloc[val_idx]
 
         # create the model for this fold
-        model = create_model_wrapper(model_type, X_train.shape[1], hidden_units, learning_rate, momentum,regularization)
+        model = create_model_wrapper(model_type, X_train.shape[1], hidden_units, learning_rate, momentum,regularization,simple_metrics=simple_metrics)
 
         # train and evaluate the model
         if is_ann(model_type):

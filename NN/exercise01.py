@@ -11,7 +11,7 @@
 
 
 # ------------------------- Imports ------------------------- #
-from config import RESULTS_DIR
+from config import RESULTS_DIR_NN
 from preprocessing.preprocessing import inspect_data
 from reporting.experiments import select_best_config_hidden, select_best_config_hyper,select_best_config_regularization
 import os
@@ -32,7 +32,7 @@ from reporting.result_saving import save_best_model_results
 def main(file_path):
 
     # Setup results directory
-    output_dir = RESULTS_DIR
+    output_dir = RESULTS_DIR_NN
     if os.path.exists(output_dir): shutil.rmtree(output_dir)
     os.makedirs(output_dir, exist_ok=True)
 
@@ -74,11 +74,12 @@ def main(file_path):
     print(best_reg)
 
 
+   
     # ------------------------- A5: Final Evaluation on Test Set ------------------------- #
     print("\n##### A5: Final Evaluation on Test Set #####")
 
     # Create, train, and evaluate the final ANN model
-    final_model = create_model_wrapper('ann', X_train_std.shape[1], best_h1, best_lr, best_momentum, best_reg)
+    final_model = create_model_wrapper('ann', X_train_std.shape[1], best_h1, best_lr, best_momentum, best_reg,simple_metrics=None)
     train_stats = train_model(model=final_model, X_train=X_train_std, y_train=y_train, X_val=None, y_val=None, model_type='ann')
     test_metrics = evaluate_performance(model=final_model, X_val=X_test_std, y_val=y_test, model_type='ann')
 
@@ -110,14 +111,16 @@ def main(file_path):
 
    
     save_best_model_results(
-      output_dir=RESULTS_DIR,
+      output_dir=RESULTS_DIR_NN,
       model=final_model,
       best_h1=best_h1,
       best_lr=best_lr,
       best_momentum=best_momentum,
       best_reg=best_reg,
-      config_summary=config_summary
-   )
+      config_summary=config_summary,
+      X_val=X_test_std,
+      y_val=y_test
+    )
    
 if __name__ == "__main__":
     main("../alzheimers_disease_data.csv")

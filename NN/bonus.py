@@ -7,7 +7,7 @@ import os
 import shutil
 from sklearn.model_selection import train_test_split
 from modeling.cross_validation import logistic_scaling
-from config import RESULTS_DIR_BONUS
+from config import RESULTS_DIR_NN_BONUS
 from bonus_dir.tuning_hidden import tuning_hidden_layers_neurons
 from bonus_dir.model import create_model_bonus
 from modeling.evaluation import evaluate_performance
@@ -20,7 +20,7 @@ from visualization.evalutation_plots import plot_confusion_matrix
 def main(file_path):
 
     # Setup results directory
-    output_dir = RESULTS_DIR_BONUS
+    output_dir = RESULTS_DIR_NN_BONUS
     if os.path.exists(output_dir): shutil.rmtree(output_dir)
     os.makedirs(output_dir, exist_ok=True)
 
@@ -74,7 +74,7 @@ def main(file_path):
    )
 
     # Save to txt file
-    results_path = os.path.join(RESULTS_DIR_BONUS, "best_deep_model_summary.txt")
+    results_path = os.path.join(RESULTS_DIR_NN_BONUS, "best_deep_model_summary.txt")
     with open(results_path, "w") as f:
       f.write(config_summary)
 

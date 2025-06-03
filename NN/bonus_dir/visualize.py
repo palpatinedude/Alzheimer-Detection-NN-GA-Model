@@ -1,10 +1,10 @@
 from visualization.plot_base import plot_line_chart
 import os
-from config import RESULTS_DIR_BONUS
+from config import RESULTS_DIR_NN_BONUS
 
 # this function plots convergence and early stopping for each fold
 def plot_convergence_and_early_stopping(fold, history, patience):
-    output_dir = os.path.join(RESULTS_DIR_BONUS)  # set output directory
+    output_dir = os.path.join(RESULTS_DIR_NN_BONUS)  # set output directory
     os.makedirs(output_dir, exist_ok=True)  # create directory if it doesn't exist
 
     epochs = list(range(len(history.history['accuracy'])))  # create epoch range

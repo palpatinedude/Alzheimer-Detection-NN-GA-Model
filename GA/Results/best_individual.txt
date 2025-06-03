@@ -1,0 +1,5 @@
+Best Individual Report
+======================
+Fitness: 0.6857
+Selected Features: 15
+Chromosome: [0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]

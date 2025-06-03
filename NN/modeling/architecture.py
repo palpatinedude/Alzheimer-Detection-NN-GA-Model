@@ -7,6 +7,7 @@ from keras.optimizers import SGD
 from keras.metrics import MeanSquaredError, BinaryCrossentropy
 from sklearn.linear_model import LogisticRegression
 from keras.regularizers import l2
+from keras.layers import Dropout
 
 # this function wraps the model creation and allows the user to choose model type ('ann' or 'logistic')
 def create_model_wrapper(model_type, input_dim, hidden_units, learning_rate, momentum,regularization, simple_metrics):
@@ -25,15 +26,21 @@ def create_model(input_dim=None, hidden_units=None, learning_rate=0.001, momentu
     if model_type == 'logistic':
         model = LogisticRegression(solver='liblinear')
     else:
-        model = Sequential([
-            Input(shape=(input_dim,), dtype='float32'),  # set dtype explicitly here
+        input_dropout_rate = 0.3  # 🔧 Fixed dropout rate here
+
+        layers = [
+            Input(shape=(input_dim,), dtype='float32'),
+            Dropout(input_dropout_rate),  # 💡 input dropout to simulate GA masking
             Dense(hidden_units, activation='relu', 
                   kernel_regularizer=l2(regularization) if regularization else None,
-                  dtype='float32'),  # also here
+                  dtype='float32'),
             Dense(1, activation='sigmoid', 
                   kernel_regularizer=l2(regularization) if regularization else None,
                   dtype='float32')
-        ])
+        ]
+
+        model = Sequential(layers)
+
         if momentum is None:
             momentum = 0.0
         optimizer = SGD(learning_rate=learning_rate, momentum=momentum)

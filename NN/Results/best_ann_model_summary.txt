@@ -1,12 +1,12 @@
 Best ANN Model Configuration:
 Hidden Units: 64
-Learning Rate: 0.1
-Momentum: 0.2
+Learning Rate: 0.05
+Momentum: 0.6
 Regularization (Lambda): 0.01
 
 Test Set Metrics:
-Accuracy: 0.8395
-Precision: 0.7456
-Recall: 0.8289
-F1 Score: 0.7850
-ROC AUC: 0.8371
+Accuracy: 0.8488
+Precision: 0.7736
+Recall: 0.8092
+F1 Score: 0.7910
+ROC AUC: 0.8399
