@@ -26,7 +26,7 @@ def create_model(input_dim=None, hidden_units=None, learning_rate=0.001, momentu
     if model_type == 'logistic':
         model = LogisticRegression(solver='liblinear')
     else:
-        input_dropout_rate = 0.3  # 🔧 Fixed dropout rate here
+        input_dropout_rate = 0.3  #  Fixed dropout rate here
 
         layers = [
             Input(shape=(input_dim,), dtype='float32'),

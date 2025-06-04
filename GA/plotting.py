@@ -10,8 +10,6 @@ def plot_fitness_over_generations(num_generations, population_history, save_path
         avg_fitnesses.append(
             sum(ind.fitness for ind in pop.individuals) / len(pop.individuals)
         )
-
-    # Fix here:
     generations = list(range(1, len(population_history) + 1))
 
     plt.figure(figsize=(7, 5))
@@ -60,13 +58,17 @@ def plot_feature_counts_over_generations(num_generations, population_history, sa
 
 
 
+def plot_tournament_selection_bar(selection_counts, save_path=None):
+    plt.figure(figsize=(10, 6))
+    plt.bar(range(len(selection_counts)), selection_counts, color='skyblue')
+    plt.title("Tournament Selection Counts")
+    plt.xlabel("Individual Index")
+    plt.ylabel("Selection Count")
+    plt.xticks(range(len(selection_counts)))
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.tight_layout()
 
-def plot_tournament_selection_pie(selection_counts):
-    labels = [f"Ind {i}" for i, count in enumerate(selection_counts) if count > 0]
-    sizes = [count for count in selection_counts if count > 0]
-
-    plt.figure(figsize=(8, 8))
-    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
-    plt.title("Tournament Selection Distribution")
-    plt.axis('equal')
-    plt.show()
+    if save_path:
+        plt.savefig(save_path)
+    else:
+        plt.show()

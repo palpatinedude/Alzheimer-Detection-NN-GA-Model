@@ -6,6 +6,7 @@ import json
 from modeling.architecture import create_model_wrapper
 import warnings
 import os
+from config import TOURNAMENT_SIZE
 
 class Population:
     """
@@ -87,10 +88,11 @@ class Population:
     def sort_by_fitness(self, reverse=True):
         self.individuals.sort(key=lambda ind: ind.fitness if ind.fitness is not None else -np.inf, reverse=reverse)
 
-    def select_parents(self, k=2, tournament_size=3, selection_counts=None):
+    def select_parents(self, k=2, selection_counts=None):
         parents = []
         for _ in range(k):
-            tournament = random.sample(self.individuals, tournament_size)
+            tournament_indices = np.random.choice(len(self.individuals), TOURNAMENT_SIZE, replace=False)
+            tournament = [self.individuals[i] for i in tournament_indices]
             winner = max(tournament, key=lambda ind: ind.fitness if ind.fitness is not None else -np.inf)
             parents.append(winner.copy())
 
