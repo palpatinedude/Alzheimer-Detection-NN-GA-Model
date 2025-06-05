@@ -2,7 +2,7 @@ import os
 import numpy as np
 from GA import GeneticAlgorithm
 from reporting import save_trial_details
-from plotting import plot_fitness_over_generations, plot_feature_counts_over_generations, plot_tournament_selection_bar
+from plotting import plot_fitness_over_generations, plot_feature_counts_over_generations, plot_tournament_selection_bar, plot_avg_best_fitness_over_generations
 
 
 class Experiment:
@@ -72,9 +72,19 @@ class Experiment:
                     best_trial_index = trial
                     best_trial_population_history = ga.population_history
 
+
             # Save trial logs and stats
             save_trial_details(idx, params, trial_results, param_results_dir)
             selection_counts = ga.selection_counts
+
+            # Collect all population histories
+            all_histories = [trial['population_history'] for trial in trial_results]
+
+            plot_avg_best_fitness_over_generations(
+                all_histories,
+                save_path=os.path.join(param_results_dir, f"params_set_{idx}_avg_best_fitness_across_trials.png")
+            )
+
 
             plot_fitness_over_generations(len(best_trial_population_history), best_trial_population_history,
                                           os.path.join(param_results_dir, f"params_set_{idx}_fitness_plot.png"))
