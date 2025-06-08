@@ -2,7 +2,7 @@
 
 import matplotlib.pyplot as plt
 import os
-from helpers import create_results_folder
+from ..helpers import create_results_folder
 
 # this function saves and/or shows the current plot, then safely closes it
 def save_and_show_plot(output_path=None, show=False):

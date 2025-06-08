@@ -2,9 +2,9 @@
 
 import os
 import json
-from visualization.training_plots import plot_convergence_for_hidden_units, plot_convergence_for_lr_momentum,plot_regularization_accuracy,plot_regularization_ce_loss
-from reporting.report_writer import write_fold_metrics, write_summary_table, write_final_stats, write_hyperparameter_summary, write_regularization_summary
-from helpers import create_results_folder
+from ..visualization.training_plots import plot_convergence_for_hidden_units, plot_convergence_for_lr_momentum,plot_regularization_accuracy,plot_regularization_ce_loss
+from ..reporting.report_writer import write_fold_metrics, write_summary_table, write_final_stats, write_hyperparameter_summary, write_regularization_summary
+from ..helpers import create_results_folder
 import numpy as np
 
 
@@ -69,7 +69,7 @@ def save_results_regularization(output_dir, results):
     print(f"\nResults saved to: {output_dir}")
 
 
-def save_best_model_results(output_dir,model,best_h1,best_lr,best_momentum,best_reg,config_summary,X_val,y_val):
+def save_best_model_results(output_dir,model,best_h1,best_lr,best_momentum,best_reg,config_summary,X_val,y_val,X_test,y_test):
 
     # Save summary
     results_path = os.path.join(output_dir, "best_ann_model_summary.txt")
@@ -94,10 +94,15 @@ def save_best_model_results(output_dir,model,best_h1,best_lr,best_momentum,best_
     model.save(model_path)
     print(f"Full model saved to {model_path}")
 
-    # Save test/validation set for GA use
+    # Save validation set for GA use
     val_data_path = os.path.join(output_dir, "val_data.npz")
     np.savez(val_data_path, X_val=X_val, y_val=y_val)
     print(f"Validation data saved to {val_data_path}")
+
+    # Save test set for GA use
+    test_data_path = os.path.join(output_dir, "test_data.npz")
+    np.savez(test_data_path, X_test=X_test, y_test=y_test)
+    print(f"Test data saved to {test_data_path}")
 
     weights_path = os.path.join(output_dir, "best_ann_model.weights.h5")
     model.save_weights(weights_path)

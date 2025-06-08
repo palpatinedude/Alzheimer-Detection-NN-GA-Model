@@ -16,7 +16,6 @@ from preprocessing.preprocessing import inspect_data
 from reporting.experiments import select_best_config_hidden, select_best_config_hyper,select_best_config_regularization
 import os
 import shutil
-import json
 from sklearn.model_selection import train_test_split
 from helpers import print_kfold_results, print_test_metrics
 from modeling.cross_validation import logistic_scaling
@@ -77,6 +76,7 @@ def main(file_path):
    
     # ------------------------- A5: Final Evaluation on Test Set ------------------------- #
     print("\n##### A5: Final Evaluation on Test Set #####")
+    
 
     # Create, train, and evaluate the final ANN model
     final_model = create_model_wrapper('ann', X_train_std.shape[1], best_h1, best_lr, best_momentum, best_reg,simple_metrics=None)

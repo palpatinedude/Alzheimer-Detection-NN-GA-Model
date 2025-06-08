@@ -111,9 +111,10 @@ def plot_avg_best_fitness_over_generations(all_histories, save_path=None):
     plt.grid(True)
     plt.tight_layout()
     plt.legend()
-
+    
     # save or display the plot
     if save_path:
         plt.savefig(save_path)
     else:
         plt.show()
+    plt.close()     

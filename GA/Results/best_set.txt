@@ -1,0 +1,9 @@
+Best Parameter Set:
+  Set: 9
+  Population Size: 200
+  Crossover Probability: 0.9
+  Mutation Probability: 0.01
+  Average Best Fitness: 0.6880
+  Average Generations: 11.00
+  Average Selected Features: 14.15
+  Best Individual Mask: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0]

@@ -1,10 +1,9 @@
 # this script handles tuning of hidden units and hyperparameters for ann models
 # it finds the best configuration using 5-fold cross-validation
 
-from modeling.cross_validation import cross_validate_model
-from config import HIDDEN_UNIT_RATIOS, LEARNING_RATES, MOMENTUM_VALUES, REGULARIZATION_VALUES,WEIGHTS
-from modeling.metrics  import composite_score
-from modeling.evaluation import update_best_configuration, evaluate_and_update
+from ..modeling.cross_validation import cross_validate_model
+from ..config import HIDDEN_UNIT_RATIOS, LEARNING_RATES, MOMENTUM_VALUES, REGULARIZATION_VALUES
+from ..modeling.evaluation import  evaluate_and_update
 
 # this function tunes the number of hidden units based on input size and stores the best result
 def tuning_hidden(X_scaled, y_train, results_all, best_score, best_config, best_result):

@@ -1,11 +1,11 @@
-# this file evaluates model performance during validation using predictions, metrics, and confusion matrix
+# this file evalu.ates model performance during validation using predictions, metrics, and confusion matrix
 # also contains functions to update the best configuration based on composite score
 
 
-from modeling.metrics import get_model_metrics
-from helpers import is_ann, predict_labels
-from config import WEIGHTS
-from modeling.metrics import composite_score
+from ..modeling.metrics import get_model_metrics
+from ..helpers import is_ann, predict_labels
+from ..config import WEIGHTS
+from ..modeling.metrics import composite_score
 
 
 # this function evaluates a model on the validation set and returns predictions, eval results, and metrics

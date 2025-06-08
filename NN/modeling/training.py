@@ -3,8 +3,8 @@
 
 import time
 from keras.callbacks import EarlyStopping
-from config import EPOCHS, BATCH_SIZE, PATIENCE
-from helpers import is_ann
+from ..config import EPOCHS, BATCH_SIZE, PATIENCE
+from ..helpers import is_ann
 
 # this function trains an artificial neural network model with optional early stopping
 def train_ann(model, X_train, y_train, X_val=None, y_val=None):

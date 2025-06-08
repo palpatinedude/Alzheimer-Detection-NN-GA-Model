@@ -1,15 +1,15 @@
 # this script performs 5-fold cross-validation for ann and logistic models
-# includes training, evaluation, metric logging, and optional scaling
+# includes trainin.g, evaluation, metric logging, and optional scaling
 
 from sklearn.model_selection import StratifiedKFold
-from modeling.metrics import finalize_metrics
-from helpers import is_ann
-from visualization.training_plots import plot_convergence_and_early_stopping
-from config import PATIENCE
-from modeling.architecture import create_model_wrapper
-from modeling.training import train_model
-from modeling.evaluation import evaluate_performance
-from preprocessing.preprocessing import scale_data
+from ..modeling.metrics import finalize_metrics
+from ..helpers import is_ann
+from ..visualization.training_plots import plot_convergence_and_early_stopping
+from ..config import PATIENCE
+from ..modeling.architecture import create_model_wrapper
+from ..modeling.training import train_model
+from ..modeling.evaluation import evaluate_performance
+from ..preprocessing.preprocessing import scale_data
 import pandas as pd
 
 
@@ -82,7 +82,7 @@ def cross_validate_model(X, y, model_type='ann', hidden_units=64, learning_rate=
     return fold_results, final_metrics
 
 # this handles data scaling and evaluation pipeline for logistic regression
-def logistic_scaling(X_train, X_test, y_train,norm):
+def logistic_scaling(X_train, X_test ,y_train,norm):
     # scale training and test data using standard scaler
     X_train_scaled, scaler = scale_data(X_train,norm)
     X_test_scaled = pd.DataFrame(scaler.transform(X_test), columns=X_test.columns)

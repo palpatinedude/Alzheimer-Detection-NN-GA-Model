@@ -1,0 +1,14 @@
+Metric,NN Model,GA Model
+Selected Features,32.0000,14.1542
+Validation Loss,0.4559,nan
+Validation Accuracy,0.8285,nan
+Validation Precision,0.7603,nan
+Validation Recall,0.7541,nan
+Validation F1 Score,0.7572,nan
+Validation ROC AUC,0.8117,nan
+Test Loss,0.4585,nan
+Test Accuracy,0.8442,nan
+Test Precision,0.7673,nan
+Test Recall,0.8026,nan
+Test F1 Score,0.7846,nan
+Test ROC AUC,0.8348,nan

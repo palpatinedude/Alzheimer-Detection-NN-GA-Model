@@ -1,10 +1,9 @@
 # this script selects the best configuration for hidden layer size , hyperparameters and regularization coefficient
 
-
-from config import RESULTS_DIR_NN,REGULARIZATION_VALUES
-from reporting.result_saving import save_results_hidden, save_results_hyper,save_results_regularization
-from modeling.tuning import tuning_hidden, tuning_hyper, tuning_regularization
-from visualization.evalutation_plots import plot_comparison_accuracy_ce_loss, plot_hyper_comparison
+from ..config import RESULTS_DIR_NN
+from ..reporting.result_saving import save_results_hidden, save_results_hyper,save_results_regularization
+from ..modeling.tuning import tuning_hidden, tuning_hyper, tuning_regularization
+from ..visualization.evalutation_plots import plot_comparison_accuracy_ce_loss, plot_hyper_comparison
 
 
 # select the best hidden layer size based on cross validation results and save results

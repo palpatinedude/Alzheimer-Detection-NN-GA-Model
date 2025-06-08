@@ -1,54 +1,55 @@
 Parameter Set: Population Size=20, Crossover Prob=0.6, Mutation Prob=0.01
 
 Trial 1:
-  Best Fitness: 0.6877
-  Generations: 13
-  Selected Features (mask): Chromosome: [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0]
-Fitness: 0.6877
+  Best Fitness: 0.6860
+  Generations: 11
+  Selected Features (mask): Chromosome: [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+Fitness: 0.6860
 Trial 2:
-  Best Fitness: 0.6897
+  Best Fitness: 0.6859
   Generations: 11
-  Selected Features (mask): Chromosome: [0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0]
-Fitness: 0.6897
+  Selected Features (mask): Chromosome: [0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+Fitness: 0.6859
 Trial 3:
-  Best Fitness: 0.6889
+  Best Fitness: 0.6848
   Generations: 11
-  Selected Features (mask): Chromosome: [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0]
-Fitness: 0.6889
+  Selected Features (mask): Chromosome: [1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+Fitness: 0.6848
 Trial 4:
-  Best Fitness: 0.6854
+  Best Fitness: 0.6861
   Generations: 11
-  Selected Features (mask): Chromosome: [0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0]
-Fitness: 0.6854
+  Selected Features (mask): Chromosome: [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0]
+Fitness: 0.6861
 Trial 5:
-  Best Fitness: 0.6903
-  Generations: 15
-  Selected Features (mask): Chromosome: [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0]
-Fitness: 0.6903
+  Best Fitness: 0.6849
+  Generations: 14
+  Selected Features (mask): Chromosome: [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+Fitness: 0.6849
 Trial 6:
-  Best Fitness: 0.6886
+  Best Fitness: 0.6862
   Generations: 11
-  Selected Features (mask): Chromosome: [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
-Fitness: 0.6886
+  Selected Features (mask): Chromosome: [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+Fitness: 0.6862
 Trial 7:
-  Best Fitness: 0.6906
-  Generations: 21
-  Selected Features (mask): Chromosome: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
-Fitness: 0.6906
+  Best Fitness: 0.6842
+  Generations: 11
+  Selected Features (mask): Chromosome: [0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1]
+Fitness: 0.6842
 Trial 8:
-  Best Fitness: 0.6889
-  Generations: 19
-  Selected Features (mask): Chromosome: [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0]
-Fitness: 0.6889
+  Best Fitness: 0.6866
+  Generations: 17
+  Selected Features (mask): Chromosome: [0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+Fitness: 0.6866
 Trial 9:
-  Best Fitness: 0.6899
-  Generations: 21
-  Selected Features (mask): Chromosome: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0]
-Fitness: 0.6899
+  Best Fitness: 0.6874
+  Generations: 19
+  Selected Features (mask): Chromosome: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0]
+Fitness: 0.6874
 Trial 10:
-  Best Fitness: 0.6904
-  Generations: 20
-  Selected Features (mask): Chromosome: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1]
-Fitness: 0.6904
-Average Best Fitness: 0.6890
-Average Generations: 15.30
+  Best Fitness: 0.6857
+  Generations: 17
+  Selected Features (mask): Chromosome: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1]
+Fitness: 0.6857
+Average Best Fitness: 0.6858
+Average Generations: 13.30
+Number of Selected Features: 14.77

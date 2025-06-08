@@ -14,9 +14,11 @@ sys.path.append(NN_DIR)
 sys.path.append(NN_REPORTING_DIR)
 
 # define important data and model paths
-data_path = os.path.abspath(os.path.join(CURRENT_DIR, '..', 'alzheimers_disease_data.csv'))  # dataset path
+DATA = os.path.abspath(os.path.join(CURRENT_DIR, '..', 'alzheimers_disease_data.csv'))  # dataset path
 BEST_PARAM = os.path.abspath(os.path.join(NN_DIR, 'Results', 'best_ann_hyperparameters.json'))  # best hyperparameters
 WEIGHTS = os.path.abspath(os.path.join(NN_DIR, 'Results', 'best_ann_model.weights.h5'))  # best trained weights
+MODEL = os.path.abspath(os.path.join(NN_DIR, 'Results', 'best_ann_model.keras'))  # full model file
+
 
 # define path to save ga results
 RESULTS_DIR_GA = "/home/marianthi/Desktop/ceid/semester_10/υπολογιστικη/Alzheimer-Detection-NN-GA-Model/GA/Results"
@@ -25,6 +27,9 @@ if not os.path.exists(RESULTS_DIR_GA):
 
 # define path to validation data saved by the nn training process
 VAL_DATA_PATH = "/home/marianthi/Desktop/ceid/semester_10/υπολογιστικη/Alzheimer-Detection-NN-GA-Model/NN/Results/val_data.npz"
+
+# define path to test data for evaluation
+TEST_DATA_PATH = "/home/marianthi/Desktop/ceid/semester_10/υπολογιστικη/Alzheimer-Detection-NN-GA-Model/NN/Results/test_data.npz"
 
 # disable gpu usage
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"

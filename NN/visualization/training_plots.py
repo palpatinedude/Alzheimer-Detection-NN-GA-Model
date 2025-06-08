@@ -3,8 +3,9 @@
 
 import os
 import numpy as np
-from config import RESULTS_DIR_NN
-from visualization.plot_base import plot_line_chart
+from ..config import RESULTS_DIR_NN
+from ..visualization.plot_base import plot_line_chart
+import matplotlib.pyplot as plt
 
 # this function plots convergence of accuracy for different lr/momentum pairs
 def plot_convergence_for_lr_momentum(results,output_dir):
@@ -141,3 +142,31 @@ def plot_regularization_ce_loss(results, output_dir):
         show=True,
         colors=["orange"]
     )
+
+
+# this function plots training history including accuracy and loss for both training and validation sets
+def plot_training_history(train_acc, val_acc, train_loss, val_loss, epochs_ran):
+    plt.figure(figsize=(12, 5))
+
+    # Accuracy plot
+    plt.subplot(1, 2, 1)
+    plt.plot(range(1, epochs_ran + 1), train_acc, label='Train Accuracy')
+    if val_acc:
+        plt.plot(range(1, len(val_acc) + 1), val_acc, label='Validation Accuracy')
+    plt.title('Training and Validation Accuracy')
+    plt.xlabel('Epoch')
+    plt.ylabel('Accuracy')
+    plt.legend()
+
+    # Loss plot
+    plt.subplot(1, 2, 2)
+    plt.plot(range(1, epochs_ran + 1), train_loss, label='Train Loss')
+    if val_loss:
+        plt.plot(range(1, len(val_loss) + 1), val_loss, label='Validation Loss')
+    plt.title('Training and Validation Loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.legend()
+
+    plt.tight_layout()
+    plt.show()
