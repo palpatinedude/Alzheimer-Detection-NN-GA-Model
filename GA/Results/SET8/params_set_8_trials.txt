@@ -1,55 +1,55 @@
 Parameter Set: Population Size=200, Crossover Prob=0.6, Mutation Prob=0.1
 
 Trial 1:
-  Best Fitness: 0.6866
+  Best Fitness: 0.6890
   Generations: 11
-  Selected Features (mask): Chromosome: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
-Fitness: 0.6866
+  Selected Features (mask): Chromosome: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0]
+Fitness: 0.6890
 Trial 2:
-  Best Fitness: 0.6866
+  Best Fitness: 0.6891
   Generations: 11
-  Selected Features (mask): Chromosome: [1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
-Fitness: 0.6866
+  Selected Features (mask): Chromosome: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+Fitness: 0.6891
 Trial 3:
-  Best Fitness: 0.6859
+  Best Fitness: 0.6889
   Generations: 11
-  Selected Features (mask): Chromosome: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0]
-Fitness: 0.6859
+  Selected Features (mask): Chromosome: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1]
+Fitness: 0.6889
 Trial 4:
-  Best Fitness: 0.6871
+  Best Fitness: 0.6900
   Generations: 11
-  Selected Features (mask): Chromosome: [0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0]
-Fitness: 0.6871
+  Selected Features (mask): Chromosome: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0]
+Fitness: 0.6900
 Trial 5:
-  Best Fitness: 0.6879
+  Best Fitness: 0.6887
   Generations: 11
-  Selected Features (mask): Chromosome: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
-Fitness: 0.6879
+  Selected Features (mask): Chromosome: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+Fitness: 0.6887
 Trial 6:
-  Best Fitness: 0.6866
+  Best Fitness: 0.6889
   Generations: 11
-  Selected Features (mask): Chromosome: [1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
-Fitness: 0.6866
+  Selected Features (mask): Chromosome: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0]
+Fitness: 0.6889
 Trial 7:
-  Best Fitness: 0.6864
+  Best Fitness: 0.6893
   Generations: 11
-  Selected Features (mask): Chromosome: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0]
-Fitness: 0.6864
+  Selected Features (mask): Chromosome: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0]
+Fitness: 0.6893
 Trial 8:
-  Best Fitness: 0.6858
+  Best Fitness: 0.6889
   Generations: 11
-  Selected Features (mask): Chromosome: [0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
-Fitness: 0.6858
+  Selected Features (mask): Chromosome: [0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+Fitness: 0.6889
 Trial 9:
-  Best Fitness: 0.6863
+  Best Fitness: 0.6882
   Generations: 11
-  Selected Features (mask): Chromosome: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0]
-Fitness: 0.6863
+  Selected Features (mask): Chromosome: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0]
+Fitness: 0.6882
 Trial 10:
-  Best Fitness: 0.6865
+  Best Fitness: 0.6890
   Generations: 11
-  Selected Features (mask): Chromosome: [0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0]
-Fitness: 0.6865
-Average Best Fitness: 0.6866
+  Selected Features (mask): Chromosome: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+Fitness: 0.6890
+Average Best Fitness: 0.6890
 Average Generations: 11.00
-Number of Selected Features: 16.11
+Number of Selected Features: 16.15

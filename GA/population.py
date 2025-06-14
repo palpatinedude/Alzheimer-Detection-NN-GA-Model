@@ -2,10 +2,15 @@
 # it handles evaluation, selection, crossover, mutation, and elitism-based replacement
 
 import numpy as np
-from .individual import Individual
 import warnings
+
+from .individual import Individual
 from .config import TOURNAMENT_SIZE 
 
+'''
+from individual import Individual
+from config import TOURNAMENT_SIZE  #  select individuals randomly from the population and choose the best one among them
+'''
 # represents a population of individuals in a genetic algorithm
 class Population:
 

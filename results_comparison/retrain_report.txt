@@ -1,0 +1,39 @@
+=== Retrained Model Report ===
+Selected Features:
+['CardiovascularDisease', 'Hypertension', 'CholesterolHDL', 'CholesterolTriglycerides', 'MMSE', 'FunctionalAssessment', 'MemoryComplaints', 'BehavioralProblems', 'ADL']
+
+Hyperparameters:
+- hidden_units: 64
+- learning_rate: 0.1
+- momentum: 0.2
+- regularization_lambda: 0.01
+
+Training History:
+- epochs_ran: 39
+- training_accuracy: 0.7891
+- training_loss: 0.4865
+
+Evaluation on Validation Set:
+- Loss: 0.4374
+- Accuracy: 0.8488
+- Precision: 0.8017
+- Recall: 0.7623
+- F1 Score: 0.7815
+- ROC AUC: 0.8293
+
+Evaluation on Test Set:
+- Loss: 0.4445
+- Accuracy: 0.8233
+- Precision: 0.7375
+- Recall: 0.7763
+- F1 Score: 0.7564
+- ROC AUC: 0.8126
+
+Overfitting Ratio: 0.03
+
+GA configuration:
+- Population Size: 200
+- Crossover Probability: 0.9
+- Mutation Probability: 0.01
+- Average Best Fitness: 0.6907
+- Average Generations: 12.00

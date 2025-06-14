@@ -2,14 +2,23 @@
 # also contains functions to update the best configuration based on composite score
 
 
-from ..modeling.metrics import get_model_metrics
-from ..helpers import is_ann, predict_labels
-from ..config import WEIGHTS
-from ..modeling.metrics import composite_score
+
+from NN.modeling.metrics import get_model_metrics
+from NN.helpers import is_ann, predict_labels
+from NN.config import WEIGHTS
+from NN.modeling.metrics import composite_score
+
+'''
+from modeling.metrics import get_model_metrics, composite_score
+from helpers import is_ann, predict_labels
+from config import WEIGHTS
+'''
+import numpy as np
 
 
 # this function evaluates a model on the validation set and returns predictions, eval results, and metrics
 def evaluate_performance(model, X_val, y_val, model_type):
+    y_val = np.array(y_val).astype(np.float32).reshape(-1, 1)
     if is_ann(model_type):  # Check if the model is an ANN
         # get loss and metrics
         eval_results = model.evaluate(X_val, y_val, verbose=0)

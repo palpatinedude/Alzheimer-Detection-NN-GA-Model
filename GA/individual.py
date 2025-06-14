@@ -6,7 +6,6 @@ import numpy as np
 # represents a single individual (solution) in the genetic algorithm
 class Individual:
     
-
     # initializes the individual with a given chromosome or randomly generates one
     def __init__(self, n_features=32, chromosome=None):
         self.n_features = n_features

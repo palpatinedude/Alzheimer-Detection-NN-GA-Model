@@ -7,9 +7,14 @@
 
 import numpy as np
 import copy
+
 from .population import Population
 from .config import PATIENCE, IMPROVE_THRESHOLD
 
+'''
+from population import Population
+from config import PATIENCE, IMPROVE_THRESHOLD
+'''
 class GeneticAlgorithm:
     # initializes the genetic algorithm with all required parameters and configuration
     def __init__(self, n_features, num_generations, elitism, best_params_path, weights_path,

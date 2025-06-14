@@ -4,10 +4,16 @@
 
 import os
 import numpy as np
+
 from .ga import GeneticAlgorithm
 from .reporting import save_trial_details
 from .plotting import plot_fitness_over_generations, plot_feature_counts_over_generations, plot_tournament_selection_bar, plot_avg_best_fitness_over_generations
 
+'''
+from ga import GeneticAlgorithm
+from reporting import save_trial_details
+from plotting import plot_fitness_over_generations, plot_feature_counts_over_generations, plot_tournament_selection_bar, plot_avg_best_fitness_over_generations
+'''
 class Experiment:
     # initialize experiment with validation data, parameter sets, and configuration options
     def __init__(self, X_val, y_val,param_sets,best_params_path, weights_path, results_dir, n_trials=10, max_generations=100, elitism=1,

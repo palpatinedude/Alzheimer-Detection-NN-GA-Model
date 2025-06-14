@@ -2,8 +2,13 @@
 
 from sklearn.metrics import (accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, confusion_matrix)
 import numpy as np
+
 from ..visualization.evalutation_plots import plot_confusion_matrix
 from ..helpers import predict_labels
+
+#from helpers import predict_labels
+#from visualization.evalutation_plots import plot_confusion_matrix
+
 
 # this function calculates key classification metrics: accuracy, precision, recall, f1, and roc auc
 def calculate_metrics(y_true, y_pred):

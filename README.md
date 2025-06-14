@@ -69,40 +69,87 @@ Evaluation:
 ```plaintext
 Alzheimer-Detection-NN-GA-Model/
 ├── alzheimers_disease_data.csv
-├── GA/
+├── GA
 │   ├── config.py
 │   ├── exercise02.py
+│   ├── experiment.py
+│   ├── ga.py
 │   ├── individual.py
+│   ├── plotting.py
 │   ├── population.py
-│   └── Project_ΥΝ_2024-25_Μέρος-Β.pdf
-├── NN/
-│   ├── exercise01.py
+│   ├── Project_ΥΝ_2024-25_Μέρος-Β.pdf
+│   ├── reporting.py
+│   ├── Results
+│   │   ├── best_ga_model_summary.txt
+│   │   ├── best_set.txt
+│   │   ├── selected_features.txt
+│   │   ├── SET1/
+│   │   ├── SET2/
+│   │   ├── SET3/
+│   │   ├── SET4/
+│   │   ├── SET5/
+│   │   ├── SET6/
+│   │   ├── SET7/
+│   │   ├── SET8/
+│   │   └── SET9/
+│   │   ├── SET10/
+│   ├── results_comparison
+│   ├── sometests
+│   │   ├── individualTest.py
+│   │   └── populationTest.py
+│   └── Εργαστηριακή_Άσκηση_Μέρος_Β_.pdf
+├── main.py
+├── NN
+│   ├── bonus_dir
+│   │   ├── cross_validate.py
+│   │   ├── evaluation.py
+│   │   ├── model.py
+│   │   ├── Results
+│   │   ├── save.py
+│   │   ├── tuning_hidden.py
+│   │   └── visualize.py
 │   ├── bonus.py
 │   ├── config.py
+│   ├── exercise01.py
 │   ├── helpers.py
-│   ├── Project_ΥΝ_2024-25_Μέρος-Α.pdf
-│   ├── bonus_dir/
-│   │   ├── cross_validate.py
-│   │   ├── model.py
-│   │   ├── save.py
-│   │   ├── visualize.py
-│   │   └── Results/
-│   ├── modeling/
+│   ├── modeling
 │   │   ├── architecture.py
-│   │   ├── training.py
+│   │   ├── cross_validation.py
 │   │   ├── evaluation.py
-│   │   ├── tuning.py
-│   │   └── etc.
-│   ├── preprocessing/
-│   │   └── preprocessing.py
-│   ├── reporting/
+│   │   ├── metrics.py
+│   │   ├── training.py
+│   │   └── tuning.py
+│   ├── old.py
+│   ├── preprocessing
+│   │   ├── preprocessing.py
+│   ├── Project_ΥΝ_2024-25_Μέρος-Α.pdf
+│   ├── reporting
 │   │   ├── experiments.py
 │   │   ├── report_writer.py
 │   │   └── result_saving.py
-│   └── Results/
-│       ├── A2/
-│       └── A3/
+│   ├── Results
+│   │   ├── A1/
+│   │   ├── A2/
+│   │   ├── A3/
+│   │   ├── best_ann_hyperparameters.json
+│   │   ├── best_ann_model.keras
+│   │   ├── best_ann_model_summary.txt
+│   │   ├── best_ann_model.weights.h5
+│   │   ├── test_data.npz
+│   │   ├── val_data.npz
+│   │   └── Α4
+│   ├── visualization
+│   │   ├── evalutation_plots.py
+│   │   ├── plot_base.py
+│   │   └── training_plots.py
+│   └── Εργαστηριακή_Άσκηση_Μέρος_Α_.pdf
+├── plot.py
+
+├── README.md
 ├── requirements.txt
+├── results_comparison/
+├── retrain.py
+└── save.py  
 ```
 
 ---
@@ -172,6 +219,11 @@ python3 NN/bonus.py
 # Run GA for feature selection (Part B)
 python3 GA/exercise02.py
 
+# Run entire pipeline  both the Neural Network training/optimization and Genetic Algorithm feature selection in one workflow
+python3 main.py 
+
+# Run retrains the neural network model after GA has selected the optimal subset of features and the NN hyperparameters have been optimized.
+python3 retrain.py
 ---
 
 # Notes

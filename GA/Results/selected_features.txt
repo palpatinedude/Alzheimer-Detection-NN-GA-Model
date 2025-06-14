@@ -1,11 +1,10 @@
 Selected Features:
-EducationLevel
 CardiovascularDisease
-HeadInjury
+Hypertension
+CholesterolHDL
 CholesterolTriglycerides
 MMSE
 FunctionalAssessment
 MemoryComplaints
 BehavioralProblems
 ADL
-Disorientation

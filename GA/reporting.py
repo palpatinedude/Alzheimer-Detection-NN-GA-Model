@@ -1,7 +1,6 @@
 # this code contains utility functions to log and store results of a genetic algorithm
 # it includes saving generation statistics, detailed trial results, and summarized parameter evaluations
 
-import csv
 import os
 import numpy as np
 
